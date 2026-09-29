@@ -4,11 +4,14 @@ import {
   deleteTodo,
   updateTodo,
   addTodo,
-  deleteCompletedTodos,
 } from "./API/index.js";
 
 import { showError, showLoader, hideLoader } from "./utils/helpers.js";
-import { initDragAndDrop, initDeleteCompleted } from "./components/index.js";
+import {
+  initDragAndDrop,
+  initDeleteCompleted,
+  addNewTodo,
+} from "./components/index.js";
 
 // Form start
 
@@ -795,7 +798,7 @@ buttonFetch.addEventListener("click", getData);
 
 // Todo
 export const todosContainer = document.getElementById("todos-container");
-const taskInput = document.getElementById("task-input");
+export const taskInput = document.getElementById("task-input");
 const addButton = document.getElementById("add-button");
 const downloadButton = document.getElementById("todo-button");
 
@@ -928,37 +931,11 @@ function renderTodo(todos) {
   });
 }
 
-async function addNewTodo() {
-  const newTodoText = taskInput.value.trim();
-
-  if (!newTodoText) {
-    alert("Add task text");
-    return;
-  }
-
-  const newTodo = {
-    text: newTodoText,
-    createdAt: Date.now(),
-    completed: false,
-  };
-
-  try {
-    await addTodo(newTodo);
-
-    console.log("task added");
-    taskInput.value = "";
-    await loadData();
-  } catch (error) {
-    console.error(error.message);
-    showError("Can not add the task ");
-  }
-}
-
-addButton.addEventListener("click", addNewTodo);
+addButton.addEventListener("click", () => addNewTodo(taskInput));
 
 taskInput.addEventListener("keydown", (event) => {
   if (event.key === "Enter") {
-    addNewTodo();
+    addNewTodo(taskInput);
   }
 });
 downloadButton.addEventListener("click", loadData);

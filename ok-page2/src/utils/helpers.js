@@ -1,3 +1,5 @@
+const todosOverlay = document.getElementById("todosOverlay");
+
 export function showError(message) {
   const icon = message === "No tasks" ? "info" : "error";
   const title = message === "No tasks" ? "Information" : "Error";

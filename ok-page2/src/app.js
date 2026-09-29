@@ -8,7 +8,7 @@ import {
 } from "./API/index.js";
 
 import { showError, showLoader, hideLoader } from "./utils/helpers.js";
-import { initDragAndDrop } from "./components/inits/initDragAndDrop.js";
+import { initDragAndDrop, initDeleteCompleted } from "./components/index.js";
 
 // Form start
 
@@ -799,11 +799,11 @@ const taskInput = document.getElementById("task-input");
 const addButton = document.getElementById("add-button");
 const downloadButton = document.getElementById("todo-button");
 
-const deleteCompletedButton = document.getElementById(
+export const deleteCompletedButton = document.getElementById(
   "delete-completed-button",
 );
 
-async function loadData() {
+export async function loadData() {
   try {
     showLoader();
     const todos = await getTodos();
@@ -963,26 +963,4 @@ taskInput.addEventListener("keydown", (event) => {
 });
 downloadButton.addEventListener("click", loadData);
 
-deleteCompletedButton.addEventListener("click", async () => {
-  const { isConfirmed } = await Swal.fire({
-    title: "Are you sure?",
-    text: "All completed tasks will be delited!",
-    icon: "warning",
-    showCancelButton: true,
-    confirmButtonColor: "#3085d6",
-    cancelButtonColor: "#d33",
-    confirmButtonText: "Yes, delete it!",
-    cancelButtonText: "Cancel",
-  });
-  if (!isConfirmed) {
-    return;
-  }
-
-  try {
-    await deleteCompletedTodos(todosContainer);
-    await loadData();
-  } catch (error) {
-    console.error(error.message);
-    showError("Can not delete task list");
-  }
-});
+initDeleteCompleted();

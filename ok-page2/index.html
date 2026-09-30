@@ -5,7 +5,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Document</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="styles/main.css" />
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
@@ -108,15 +108,15 @@
       <audio id="audio"></audio>
       <div class="controls">
         <button id="prev">
-          <img src="icons/stack.png" alt="Предыдущий" />
+          <img src="assets/icons/stack.png" alt="Предыдущий" />
         </button>
         <button id="play">
-          <img src="icons/play.png" alt="Проигрывать" />
+          <img src="assets/icons/play.png" alt="Проигрывать" />
         </button>
-        <button id="pause"><img src="icons/pause.png" alt="Пауза" /></button>
-        <button id="stop"><img src="icons/stop.png" alt="Остановить" /></button>
+        <button id="pause"><img src="assets/icons/pause.png" alt="Пауза" /></button>
+        <button id="stop"><img src="assets/icons/stop.png" alt="Остановить" /></button>
         <button id="next">
-          <img src="icons/stack.png" alt="Следующий" class="next-track" />
+          <img src="assets/icons/stack.png" alt="Следующий" class="next-track" />
         </button>
       </div>
       <div class="progress-bar">
@@ -125,10 +125,10 @@
         <span id="duration">0:00</span>
       </div>
       <div class="volume">
-        <label for="volume"><img src="icons/not-sound.png" />
-          <img src="icons/sound-level-1.png" />
-          <img src="icons/sound-level-2.png" />
-          <img src="icons/sound-level-3.png" /></label>
+        <label for="volume"><img src="assets/icons/not-sound.png" />
+          <img src="assets/icons/sound-level-1.png" />
+          <img src="assets/icons/sound-level-2.png" />
+          <img src="assets/icons/sound-level-3.png" /></label>
         <input type="range" id="volume" min="0" max="1" step="0.1" value="0.5" />
       </div>
       <div class="playlist">
@@ -145,7 +145,7 @@
   <section>
     <div id="drop">Сюда перетаскивать</div>
     <div id="drag" draggable="true">Это перетаскивать</div>
-    <img id="drag-img" src="winter.jpg" alt="Зима" />
+    <img id="drag-img" src="assets/winter.jpg" alt="Зима" />
   </section>
 
   <hr>
@@ -188,14 +188,14 @@
   <section>
     <button id="loaderBtn">Загрузить изображение</button>
     <div id="imageContainer"></div>
-    <img id="loaderImg" src="loader.gif" alt="Loading..." />
+    <img id="loaderImg" src="assets/loader.gif" alt="Loading..." />
 
   </section>
   <hr>
   <!-- Fetch  -->
   <section>
     <button id="buttonFetch">Получить данные</button>
-    <img src="loader.gif" alt="Загрузка" id="loaderFetch">
+    <img src="assets/loader.gif" alt="Загрузка" id="loaderFetch">
     <div id="posts-container"></div>
   </section>
 
@@ -208,7 +208,7 @@
     <div class="input-block">
       <input type="text" id="task-input" placeholder="Введите задачу" />
       <button id="add-button">
-        <img src="img/icon-add.png" class="icons" />
+        <img src="assets/img/icon-add.png" class="icons" />
       </button>
     </div>
 
@@ -219,7 +219,7 @@
     <div id="todos-container"></div>
     <button id="delete-completed-button">Delete all completed tasks</button>
   </section>
-  <script src="script.js" type="module"></script>
+  <script src="src/app.js" type="module"></script>
 </body>
 
 </html>

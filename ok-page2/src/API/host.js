@@ -1,1 +1,2 @@
-export const host = "https://6ab79cba9b03155d0808dbc3.mockapi.io/api/v1/todos";
+export const host =
+  "https://todo-300926-default-rtdb.europe-west1.firebasedatabase.app/todos/v1";

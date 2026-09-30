@@ -10,3 +10,6 @@ export * from "./ui/addNewTodo.js";
 export * from "./ui/updateTask.js";
 export * from "./ui/renderTodo.js";
 export * from "./ui/loadData.js";
+
+export * from "./auth/signup.js";
+export * from "./auth/signIn.js";

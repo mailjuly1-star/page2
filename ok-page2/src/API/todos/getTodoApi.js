@@ -2,7 +2,7 @@ import { host } from "../host.js";
 
 export async function getTodos() {
   try {
-    const response = await fetch(host, {
+    const response = await fetch(`${host}.json`, {
       method: "GET",
     });
 
@@ -11,13 +11,19 @@ export async function getTodos() {
     }
 
     const data = await response.json();
-
-    if (data.length === 0) {
+    console.log("data received", data);
+    if (!data) {
       throw new Error("No tasks");
     }
-    data.sort((a, b) => a.order - b.order);
-    console.log("data received", data);
-    return data;
+    const todosArray = Object.keys(data).map((key) => ({
+      id: key,
+      ...data[key],
+    }));
+
+    todosArray.sort((a, b) => a.order - b.order);
+    console.log(todosArray);
+
+    return todosArray;
   } catch (error) {
     console.log("data received error", error.message);
 

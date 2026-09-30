@@ -655,7 +655,7 @@ img {
   border: none;
   margin-right: 8px;
   padding: 8px 16px;
-  background-color: #fff;
+  background-color: transparent;
   cursor: pointer;
   transition: all 0.3s ease;
 }
@@ -675,4 +675,14 @@ img {
 
 .todo {
   transition: all 0.3s;
+}
+.text-element {
+  font-size: 18px;
+  padding: 10px;
+  background-color: #e1dada;
+  border-radius: 6px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
 }
